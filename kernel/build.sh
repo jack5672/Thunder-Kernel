@@ -122,13 +122,13 @@ else
           $outdir/.config
   else
     if [ "$CUSTOM_DRAM_SIZE" == "4G" ]; then
-        # Config DRAM size as 4G (0x20000000).
+        # Config DRAM size as 4G (0x40000000).
         sed --in-place=.orig \
             -e 's/\(CONFIG_MAX_DRAM_SIZE_SUPPORT=\).*/\10x20000000/' \
             $outdir/.config
     else
       if [ "$CUSTOM_DRAM_SIZE" == "6G" ]; then
-          # Config DRAM size as 6G (0x30000000).
+          # Config DRAM size as 6G (0x60000000).
           sed --in-place=.orig \
               -e 's/\(CONFIG_MAX_DRAM_SIZE_SUPPORT=\).*/\10x30000000/' \
               -e 's/\(CONFIG_CMDLINE=.*\)"/\1 vmalloc=280M"/' \
@@ -138,7 +138,7 @@ else
               $outdir/.config
       else
         if [ "$CUSTOM_DRAM_SIZE" == "8G" ]; then
-            # Config DRAM size as 8G (0x40000000).
+            # Config DRAM size as 8G (0x80000000).
             sed --in-place=.orig \
                 -e 's/\(CONFIG_MAX_DRAM_SIZE_SUPPORT=\).*/\10x40000000/' \
                 -e 's/\(CONFIG_CMDLINE=.*\)"/\1 vmalloc=280M"/' \
